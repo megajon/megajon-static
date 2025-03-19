@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="kp.css">
+</head>
+<body>
+  <div>
+    <ul>
+      <li>
+        <select name="blinds" id="blinds">
+          <option value="30">10/20</option>
+          <option value="45">15/30</option>
+          <option value="60">20/40</option>
+          <option value="85">25/60</option>
+          <option value="110">30/80</option>
+          <option value="140">40/100</option>
+          <option value="170">50/120</option>
+          <option value="220">60/160</option>
+          <option value="280">80/200</option>
+          <option value="350">100/250</option>
+          <option value="425">125/300</option>
+          <option value="550">150/400</option>
+          <option value="700">200/500</option>
+          <option value="850">250/600</option>
+          <option value="1100">300/800</option>
+          <option value="1400">400/1000</option>
+        </select>
+      </li>
+      <li>
+        <select name="ante" id="ante">
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="8">8</option>
+          <option value="10">10</option>
+          <option value="12">12</option>
+          <option value="16">16</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+          <option value="60">60</option>
+          <option value="80">80</option>
+        </select>
+      </li>
+      <li>
+        <select name="players" id="players">
+          <option value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="7">7</option>
+          <option value="6">6</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </li>
+      <li>
+        <p>CPR: <span id="cpr"></span></p>
+      </li>
+    </ul>
+    <p>Huge Stack: <span id="hugeStack"></span></p>
+    <p>Big Stack: <span id="bigStack"></span></p>
+    <p>Medium Stack: <span id="mediumStack"></span></p>
+    <p>Small Stack: <span id="smallStack"></span></p>
+  </div>
+  <select name="stack_size" id="stack_size">
+    <option value="huge_stack">Huge Stack (> 30x CPR)</option>
+    <option value="big_stack">Big Stack (> 10x CPR)</option>
+    <option value="medium_stack">Medium Stack (> 4x CPR)</option>
+    <option value="small_stack">Small Stack (< 4x CPR)</option>
+  </select>
+  <select name="position" id="position">
+    <option value="late">Button</option>
+    <option value="late">Small Blind</option>
+    <option value="late">Big Blind</option>
+    <option value="early">Under the Gun</option>
+    <option value="early">Under the Gun +1</option>
+    <option value="early">Under the Gun +2</option>
+    <option value="middle">Middle Position 1</option>
+    <option value="middle">Middle Position 2</option>
+    <option value="middle">Middle Position 3</option>
+    <option value="late">Cutoff</option>
+  </select>
+  <select name="raisers" id="raisers">
+    <option value="unraised_l">Unraised (limpers)</option>
+    <option value="unraised_nl">Unraised (no limpers)</option>
+    <option value="single_raiser">Single Raised</option>
+    <option value="multiple_raisers">Multiple Raised</option>
+  </select>
+  <br></br>
+  <li id="show_groupings"></li>
+  <div id="hand_groupings">
+    <p id="group1" class="hand_groupings">1.) AA, KK</p>
+    <p id="group2" class="hand_groupings">2.) QQ, AKs, AK</p>
+    <p id="group3" class="hand_groupings">3.) JJ, TT, 99</p>
+    <p id="group4" class="hand_groupings">4.) AQs, 88 through 66</p>
+    <p id="group5" class="hand_groupings">5.) AQ, AJs, ATs</p>
+    <p id="group6" class="hand_groupings">6.) Suited connectors KQs through 54s</p>
+    <p id="group7" class="hand_groupings">7.) AJ, AT, KQ</p>
+    <p id="group8" class="hand_groupings">8.) 55 through 22, A9s through A2s, A9 through A7, KJs, KJ, KTs</p>
+    <p id="group9" class="hand_groupings">9.) 1-gap suited connectors QTs through 64s, A6 through A2</p>
+    <p id="group10" class="hand_groupings">10.) 2-gap suited connectors Q9s through 63s, K9s through K7s, Q8s, KT, QT, JT, K9, QJ</p>
+  </div>
+  <h2>Strategy:</h2>
+  <div id="strategy"></div>
+  <div id="huge_stack">
+    <p id="limpers" class="strategy">Move in with Group 1-2</p>
+    <div id="no_limpers" class="strategy">
+      <p>Move in with Group 1-3</p>
+      <p>Move in with Group 1-4</p>
+      <p>Move in with Group 1-5</p>
+      <p>Move in with Group 1-7</p>
+      <p>Move in with Group 1-8</p>
+      <p>Move in with Group 1-10</p>
+      <p>Move in with Group 1-5 and 7</p>
+      <p>Move in with Group 1-5, 7, 8</p>
+      <p>or<br></br>bet about one sixth of your stack size. if reraised, move in.Post-flop, move in regardless of the flop, unless you have kings and an ace flops.</p>
+    </div>
+    <p id="single_raised" class="strategy">With Group 1, reraise five times the amount of the raise or one-sixth of your stack, whichever is greater.</p>
+    <p id="multiple_raises" class="strategy"> Move in with Group 1, otherwise fold.</p>
+  </div>
+
+  <div id="big_stack">
+    <div id="unraised_pots" class="strategy">
+      <p id="bs_ep_l" class="strategy">Move in with Group 1</p>
+      <!-- <div id="bs_ep_nl" class="strategy">
+        <p>Move in with Group 1</p>
+        <p>or</p>
+        <p>Bet about on sixth of your stack size. if reraised, move in.</p>
+        <p>Post-flop, move in regardless of the flop, unless you have kings and an ace flops.</p>
+      </div> -->
+    </div>
+  </div>
+</body>
+<script src="kp.js"></script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>When you submit the form, a function is triggered which alerts some text.</p>
+
+    <form id="formInput" onsubmit="myFunction()">
+      Enter name: <input type="text" name="name">
+      <input type="submit" value="Submit">
+      <p id="content"></p>
+    </form>
+
+    <script>
+    async function myFunction(event) {
+      event.preventDefault()
+      const formData = new FormData(formInput);
+      const response = await fetch("http://localhost:4000/test", {
+        method: "POST",
+        body: formData,
+      })
+    }
+    </script>
+  </body>
+</html>
