@@ -99,21 +99,22 @@ function addClassToChildren() {
 
 function updateStrategy() {
   // huge stack
-  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_l' && position.value === 'early') {
+  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_nl' && (position.value === 'early' || position.value === 'middle')) {
     addClassToChildren();
     strategy.innerHTML = "Move in with groups 1-2";
     group1.classList.remove("hand_groupings");
     group2.classList.remove("hand_groupings");
   }
 
-  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_l' && position.value === 'middle') {
-    addClassToChildren();
-    strategy.innerHTML = "Move in with groups 1-2";
-    group1.classList.remove("hand_groupings");
-    group2.classList.remove("hand_groupings");
-  }
 
-  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_l' && position.value === 'late') {
+  // if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_nl' && position.value === 'middle') {
+  //   addClassToChildren();
+  //   strategy.innerHTML = "Move in with groups 1-2";
+  //   group1.classList.remove("hand_groupings");
+  //   group2.classList.remove("hand_groupings");
+  // }
+
+  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_nl' && position.value === 'late') {
     addClassToChildren();
     strategy.innerHTML = "Move in with groups 1-3";
     group1.classList.remove("hand_groupings");
@@ -121,7 +122,7 @@ function updateStrategy() {
     group3.classList.remove("hand_groupings");
   }
 
-  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_l' && position.value === 'blind') {
+  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_nl' && position.value === 'blind') {
     addClassToChildren();
     strategy.innerHTML = "Move in with groups 1-5";
     group1.classList.remove("hand_groupings");
@@ -131,39 +132,194 @@ function updateStrategy() {
     group5.classList.remove("hand_groupings");
   }
 
-  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_nl') {
-    groupings.innerHTML = group1.innerHTML;
-    strategy.innerHTML = noLimpers.innerHTML;
+  if (stackSize.value === 'huge_stack' && (raisers.value === 'early' || raisers.value === 'middle')) {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-2";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
   }
 
-  if (stackSize.value === 'huge_stack' && raisers.value === 'single_raiser') {
-    groupings.innerHTML = group1.innerHTML;
-    strategy.innerHTML = singelRaiser.innerHTML;
+  if (stackSize.value === 'huge_stack' && raisers.value === 'late') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-3";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
   }
 
-  if (stackSize.value === 'huge_stack' && raisers.value === 'multiple_raisers') {
-    groupings.innerHTML = group1.innerHTML;
-    strategy.innerHTML = multipleRaisers.innerHTML;
+  if (stackSize.value === 'huge_stack' && (raisers.value === 'small-blind' || raisers.value === 'big-blind')) {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-4";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'medium_stack' && raisers.value === 'unraised_nl' && position.value === 'early') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-5";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'medium_stack' && raisers.value === 'unraised_nl' && position.value === 'middle') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-7";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+    group6.classList.remove("hand_groupings");
+    group7.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'medium_stack' && raisers.value === 'unraised_nl' && (position.value === 'late' || position.value === 'blind')) {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-8";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+    group6.classList.remove("hand_groupings");
+    group7.classList.remove("hand_groupings");
+    group8.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'medium_stack' && raisers.value === 'early' ) {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-3";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'medium_stack' && (raisers.value === 'blind' || raisers.value === 'middle' || raisers.value === 'late')) {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-5 and 7";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+    group7.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'small_stack' && raisers.value === 'unraised_nl' && position.value === 'early') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-7";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+    group6.classList.remove("hand_groupings");
+    group7.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'small_stack' && raisers.value === 'unraised_nl' && position.value === 'middle') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-8";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+    group6.classList.remove("hand_groupings");
+    group7.classList.remove("hand_groupings");
+    group8.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'small_stack' && raisers.value === 'unraised_nl' && (position.value === 'late' || position.value === 'blind')) {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-10";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+    group6.classList.remove("hand_groupings");
+    group7.classList.remove("hand_groupings");
+    group8.classList.remove("hand_groupings");
+    group9.classList.remove("hand_groupings");
+    group10.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'small_stack' && raisers.value === 'early') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-5";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'small_stack' && raisers.value === 'middle') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-5 and 7";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+    group7.classList.remove("hand_groupings");
+  }
+
+  
+  if (stackSize.value === 'small_stack' && (raisers.value === 'late' || raisers.value === 'small-blind' || raisers.value === 'big-blind')) {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-5,7 and 8";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
+    group7.classList.remove("hand_groupings");
+    group8.classList.remove("hand_groupings");
+  }
+
+  
+
+
+  // if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_nl') {
+  //   groupings.innerHTML = group1.innerHTML;
+  //   strategy.innerHTML = noLimpers.innerHTML;
+  // }
+
+  // if (stackSize.value === 'huge_stack' && raisers.value === 'single_raiser') {
+  //   groupings.innerHTML = group1.innerHTML;
+  //   strategy.innerHTML = singelRaiser.innerHTML;
+  // }
+
+  // if (stackSize.value === 'huge_stack' && raisers.value === 'multiple_raisers') {
+  //   groupings.innerHTML = group1.innerHTML;
+  //   strategy.innerHTML = multipleRaisers.innerHTML;
     
-  }
+  // }
 
 
   //big stack
-  if (stackSize.value === 'big_stack' && position.value === 'early' && raisers.value === 'unraised_l') {
-    groupings.innerHTML = group1.innerHTML;
-    strategy.innerHTML = limpers.innerHTML;
-  }
+  // if (stackSize.value === 'big_stack' && position.value === 'early' && raisers.value === 'unraised_l') {
+  //   groupings.innerHTML = group1.innerHTML;
+  //   strategy.innerHTML = limpers.innerHTML;
+  // }
 
-  if (stackSize.value === 'big_stack' && position.value === 'early' && raisers.value === 'unraised_nl') {
-    groupings.innerHTML = group1.innerHTML;
-    strategy.innerHTML = noLimpers.innerHTML;
-  }
+  // if (stackSize.value === 'big_stack' && position.value === 'early' && raisers.value === 'unraised_nl') {
+  //   groupings.innerHTML = group1.innerHTML;
+  //   strategy.innerHTML = noLimpers.innerHTML;
+  // }
 
-  if (stackSize.value === 'big_stack' && position.value === 'middle') {
-    const group1 = document.getElementById('group1');
-    const group2 = document.getElementById('group2');
-    groupings.innerHTML = group1.innerHTML + `<br></br>` + group2.innerHTML;
-  }
+  // if (stackSize.value === 'big_stack' && position.value === 'middle') {
+  //   const group1 = document.getElementById('group1');
+  //   const group2 = document.getElementById('group2');
+  //   groupings.innerHTML = group1.innerHTML + `<br></br>` + group2.innerHTML;
+  // }
 }
 
 updateCsi()
