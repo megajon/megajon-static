@@ -12,11 +12,20 @@ const raisers = document.getElementById('raisers');
 let groupings = document.getElementById('show_groupings');
 let strategy = document.getElementById('strategy');
 let group1 = document.getElementById('group1');
+let group2 = document.getElementById('group2');
+let group3 = document.getElementById('group3');
+let group4 = document.getElementById('group4');
+let group5 = document.getElementById('group5');
+let group6 = document.getElementById('group6');
+let group7 = document.getElementById('group7');
+let group8 = document.getElementById('group8');
+let group9 = document.getElementById('group9');
+let group10 = document.getElementById('group10');
 let limpers = document.getElementById('limpers');
 let noLimpers = document.getElementById('no_limpers');
 let singleRaiser = document.getElementById('single_raised');
 let multipleRaisers = document.getElementById('multiple_raises');
-const groupOneThroughTwo = document.
+
 // cpr.innerHTML = calculateCpr();
 // hugeStack = calculateCpr() * 30;
 // bigStack = calculateCpr() * 10;
@@ -80,11 +89,46 @@ function calculateStackSize() {
   hStack.innerHTML = stackSizes.hugeStack;
 }
 
+function addClassToChildren() {
+  let parentDiv = document.getElementById("hand_groupings");
+  let children = parentDiv.children;
+  for (let child of children) {
+    child.classList.add("hand_groupings");
+  }
+}
+
 function updateStrategy() {
   // huge stack
-  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_l') {
-    groupings.innerHTML = group1.innerHTML;
-    strategy.innerHTML = limpers.innerHTML;
+  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_l' && position.value === 'early') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-2";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_l' && position.value === 'middle') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-2";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_l' && position.value === 'late') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-3";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+  }
+
+  if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_l' && position.value === 'blind') {
+    addClassToChildren();
+    strategy.innerHTML = "Move in with groups 1-5";
+    group1.classList.remove("hand_groupings");
+    group2.classList.remove("hand_groupings");
+    group3.classList.remove("hand_groupings");
+    group4.classList.remove("hand_groupings");
+    group5.classList.remove("hand_groupings");
   }
 
   if (stackSize.value === 'huge_stack' && raisers.value === 'unraised_nl') {

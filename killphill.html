@@ -76,8 +76,8 @@
   </select>
   <select name="position" id="position">
     <option value="late">Button</option>
-    <option value="late">Small Blind</option>
-    <option value="late">Big Blind</option>
+    <option value="blind">Small Blind</option>
+    <option value="blind">Big Blind</option>
     <option value="early">Under the Gun</option>
     <option value="early">Under the Gun +1</option>
     <option value="early">Under the Gun +2</option>
@@ -89,11 +89,15 @@
   <select name="raisers" id="raisers">
     <option value="unraised_l">Unraised (limpers)</option>
     <option value="unraised_nl">Unraised (no limpers)</option>
-    <option value="single_raiser">Single Raised</option>
-    <option value="multiple_raisers">Multiple Raised</option>
+    <option value="early">Early Raiser</option>
+    <option value="middle">Middle Raiser</option>
+    <option value="late">Late Raiser</option>
+    <option value="small-blind">Small-blind Raiser</option>
+    <option value="big-blind">Big-blind Raiser</option>
+    <option value="either-blind">Either-blind Raiser</option>
   </select>
   <br></br>
-  <li id="show_groupings"></li>
+  <div id="show_groupings"></div>
   <div id="hand_groupings">
     <p id="group1" class="hand_groupings">1.) AA, KK</p>
     <p id="group2" class="hand_groupings">2.) QQ, AKs, AK</p>
@@ -106,8 +110,8 @@
     <p id="group9" class="hand_groupings">9.) 1-gap suited connectors QTs through 64s, A6 through A2</p>
     <p id="group10" class="hand_groupings">10.) 2-gap suited connectors Q9s through 63s, K9s through K7s, Q8s, KT, QT, JT, K9, QJ</p>
   </div>
-  <h2>Strategy:</h2>
-  <div id="strategy"></div>
+  <h2 id="strategy"></h2>
+  <!-- <div id="strategy"></div> -->
   <div id="huge_stack">
     <p id="limpers" class="strategy">Move in with Group 1-2</p>
     <div id="no_limpers" class="strategy">
@@ -136,5 +140,5 @@
       </div> -->
     </div>
   </div>
+  <script src="kp.js"></script>
 </body>
-<script src="kp.js"></script>
